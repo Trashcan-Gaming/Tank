@@ -62,17 +62,21 @@ def init():
     paddle2_pos = [int(WIDTH/2), int(HEIGHT - 20 - HALF_PAD_HEIGHT)]
     l_score = 0
     r_score = 0
-    for i in range(0, 6):
-         rectangles.append(pygame.Rect(((i * 50 + 10*i)+120),(HEIGHT/2),50,20))
+    j = 0
+    for i in range(0, 18):
+        if (i % 6 == 0):
+           j += 1
+           print(j)
+        rectangles.append(pygame.Rect((((i %6)* 50 + 10*(i%6))+120),((HEIGHT/2) + 20 * j + 10*j - 75),50,20))
 
 def fire_proj_1():
     global paddle1_pos, paddle2_pos, fired
-    if(len(fired1)<= 6):
+    if(len(fired1)<= 15):
         fired1.append(pygame.Rect(paddle1_pos[0], paddle1_pos[1]+PAD_HEIGHT, 10, 10))
 
 def fire_proj_2():
     global paddle1_pos, paddle2_pos, fired
-    if(len(fired2)<= 6):
+    if(len(fired2)<= 15):
          fired2.append(pygame.Rect(paddle2_pos[0], paddle2_pos[1] - PAD_HEIGHT - 10, 10, 10))
 
 
@@ -130,10 +134,10 @@ def draw(canvas):
 
     for fire in fired1:
         for rect in rectangles:
-            if fire[1] == rect[1] and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
+            if fire[1] == rect[1] -10 and fire[0] >= rect[0]  and (fire[0] <= rect[0] + 50):
                 fired1.remove(fire)
                 rectangles.remove(rect)
-            if fire[1] == paddle2_pos[1] - 10   and fire[0] >= paddle2_pos[0] and (fire[0] <= paddle2_pos[0] + 50):
+            if fire[1] == paddle2_pos[1] - 10   and (fire[0] >= paddle2_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle2_pos[0] + HALF_PAD_WIDTH):
                 p2_alive = False
                 GameOver = True
 
@@ -143,7 +147,7 @@ def draw(canvas):
             if fire[1] == rect[1] + 20  and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
                 fired2.remove(fire)
                 rectangles.remove(rect)
-            if fire[1] == paddle1_pos[1] +10   and fire[0] >= paddle1_pos[0] and (fire[0] <= paddle1_pos[0] + 50):
+            if fire[1] == paddle1_pos[1] +10   and (fire[0] >= paddle1_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle1_pos[0] + HALF_PAD_WIDTH):
                 p1_alive = False
                 GameOver = True
 
@@ -238,4 +242,4 @@ while not GameOver:
             sys.exit()
 
     pygame.display.update()
-    fps.tick(60)
+    fps.tick(100)
