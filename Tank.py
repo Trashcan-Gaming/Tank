@@ -133,17 +133,17 @@ def draw(canvas):
             if fire[1] == rect[1] and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
                 fired1.remove(fire)
                 rectangles.remove(rect)
-            if fire[1] == paddle2_pos[1] - 20   and fire[0] >= paddle2_pos[0] and (fire[0] <= paddle2_pos[0] + 50):
+            if fire[1] == paddle2_pos[1] - 10   and fire[0] >= paddle2_pos[0] and (fire[0] <= paddle2_pos[0] + 50):
                 p2_alive = False
                 GameOver = True
 
 
     for fire in fired2:
         for rect in rectangles:
-            if fire[1] == rect[1] +20 and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
+            if fire[1] == rect[1] + 20  and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
                 fired2.remove(fire)
                 rectangles.remove(rect)
-            if fire[1] == paddle1_pos[1]  and fire[0] >= paddle1_pos[0] and (fire[0] <= paddle1_pos[0] + 50):
+            if fire[1] == paddle1_pos[1] +10   and fire[0] >= paddle1_pos[0] and (fire[0] <= paddle1_pos[0] + 50):
                 p1_alive = False
                 GameOver = True
 
@@ -184,13 +184,13 @@ def draw(canvas):
     #     ball_init(False)
 
     #update scores
-    myfont1 = pygame.font.SysFont("Comic Sans MS", 20)
-    label1 = myfont1.render("Score "+str(l_score), 1, (255,255,0))
-    canvas.blit(label1, (50,20))
-
-    myfont2 = pygame.font.SysFont("Comic Sans MS", 20)
-    label2 = myfont2.render("Score "+str(r_score), 1, (255,255,0))
-    canvas.blit(label2, (470, 20))
+    # myfont1 = pygame.font.SysFont("Comic Sans MS", 20)
+    # label1 = myfont1.render("Score "+str(l_score), 1, (255,255,0))
+    # canvas.blit(label1, (50,20))
+    #
+    # myfont2 = pygame.font.SysFont("Comic Sans MS", 20)
+    # label2 = myfont2.render("Score "+str(r_score), 1, (255,255,0))
+    # canvas.blit(label2, (470, 20))
 
 
 #keydown handler
