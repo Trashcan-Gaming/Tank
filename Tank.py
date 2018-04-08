@@ -137,9 +137,9 @@ def draw(canvas):
             if fire[1] == rect[1] -10 and fire[0] >= rect[0]  and (fire[0] <= rect[0] + 50):
                 fired1.remove(fire)
                 rectangles.remove(rect)
-            if fire[1] == paddle2_pos[1] - 10   and (fire[0] >= paddle2_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle2_pos[0] + HALF_PAD_WIDTH):
-                p2_alive = False
-                GameOver = True
+        if fire[1] == paddle2_pos[1] - 10   and (fire[0] >= paddle2_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle2_pos[0] + HALF_PAD_WIDTH):
+            p2_alive = False
+            GameOver = True
 
 
     for fire in fired2:
@@ -147,9 +147,9 @@ def draw(canvas):
             if fire[1] == rect[1] + 20  and fire[0] >= rect[0] and (fire[0] <= rect[0] + 50):
                 fired2.remove(fire)
                 rectangles.remove(rect)
-            if (fire[1] == paddle1_pos[1] +10)   and (fire[0] >= paddle1_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle1_pos[0] + HALF_PAD_WIDTH):
-                p1_alive = False
-                GameOver = True
+        if (fire[1] == paddle1_pos[1] +10)   and (fire[0] >= paddle1_pos[0] - HALF_PAD_WIDTH) and (fire[0] <= paddle1_pos[0] + HALF_PAD_WIDTH):
+            p1_alive = False
+            GameOver = True
 
     #draw paddles and ball
     # pygame.draw.circle(canvas, RED, ball_pos, 20, 0)
