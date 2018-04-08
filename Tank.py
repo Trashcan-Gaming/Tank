@@ -209,7 +209,7 @@ def keydown(event):
         paddle1_vel = -8
     elif event.key == K_d:
         paddle1_vel = 8
-    elif event.key == K_SPACE:
+    elif event.key == K_s:
         fire_proj_1()
     elif event.key == K_RETURN:
         fire_proj_2()
