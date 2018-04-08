@@ -110,18 +110,18 @@ def draw(canvas):
     # pygame.draw.circle(canvas, WHITE, [WIDTH//2, HEIGHT//2], 70, 1)
 
     # update paddle's vertical position, keep paddle on the screen
-    if paddle1_pos[0] > HALF_PAD_WIDTH and paddle1_pos[0] < WIDTH - HALF_PAD_WIDTH:
+    if paddle1_pos[0] > HALF_PAD_WIDTH  and paddle1_pos[0] < WIDTH - HALF_PAD_WIDTH :
         paddle1_pos[0] += paddle1_vel
-    elif paddle1_pos[0] == HALF_PAD_WIDTH and paddle1_vel > 0:
+    elif paddle1_pos[0] <= HALF_PAD_WIDTH and paddle1_vel > 0:
         paddle1_pos[0] += paddle1_vel
-    elif paddle1_pos[0] == WIDTH - HALF_PAD_WIDTH and paddle1_vel < 0:
+    elif paddle1_pos[0] >= WIDTH - HALF_PAD_WIDTH and paddle1_vel < 0:
         paddle1_pos[0] += paddle1_vel
 
     if paddle2_pos[0] > HALF_PAD_WIDTH and paddle2_pos[0] < WIDTH - HALF_PAD_WIDTH:
         paddle2_pos[0] += paddle2_vel
-    elif paddle2_pos[0] == HALF_PAD_WIDTH and paddle2_vel > 0:
+    elif paddle2_pos[0] <= HALF_PAD_WIDTH and paddle2_vel > 0:
         paddle2_pos[0] += paddle2_vel
-    elif paddle2_pos[0] == WIDTH - HALF_PAD_WIDTH and paddle2_vel < 0:
+    elif paddle2_pos[0] >= WIDTH - HALF_PAD_WIDTH and paddle2_vel < 0:
         paddle2_pos[0] += paddle2_vel
 
     #update ball
